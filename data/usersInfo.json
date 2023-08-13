@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "name": "ali",
+        "username": "AliZibaie",
+        "password": 123456,
+        "email": "alizibaie1380@gmail.com",
+        "is_admin": true,
+        "is_block": false
+    },
+    {
+        "id": 2,
+        "name": "ali2",
+        "username": "AliZibaieB",
+        "password": 1234567,
+        "email": "alizibaie13802@gmail.com",
+        "is_admin": false,
+        "is_block": false
+    },
+    {
+        "id": 3,
+        "name": "ali3",
+        "username": "AliZibaieA",
+        "password": 1234563,
+        "email": "alizibaie13803@gmail.com",
+        "is_admin": false,
+        "is_block": false
+    }
+]

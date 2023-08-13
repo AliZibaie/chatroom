@@ -1,0 +1,13 @@
+$("#signupform").hide();
+$(document).ready(function(){
+  $("#signup").on('click',()=>{
+      $("#loginform").hide()
+      $("#signupform").show()
+  })
+});
+$(document).ready(function(){
+  $("#login").on('click',()=>{
+      $("#signupform").hide()
+      $("#loginform").show()
+  })
+});
