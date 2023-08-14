@@ -1,9 +1,9 @@
 <?php
-require_once '../app/function.php';
-require_once '../app/helper.php';
-global $online_user;
-function showMessageJSON() : void
-{
+if (SHOW_MESSAGE ==='JSON'){
+    require_once '../app/function.php';
+    require_once '../app/helper.php';
+    global $online_user;
+
     global $online_user;
     global $admin;
     $messagesInPublic = json_decode(file_get_contents('../data/public_chat.json'),true);
@@ -81,7 +81,5 @@ function showMessageJSON() : void
         }
     }
 }
-if (SHOW_MESSAGE === 'JSON'){
-    showMessageJSON();
-}
+
 

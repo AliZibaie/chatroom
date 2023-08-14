@@ -1,7 +1,7 @@
 <?php
-global $online_user;
-function saveJSON() : void
-{
+if (SHOW_MESSAGE === "JSON"){
+    global $online_user;
+
     global $online_user;
     function is_block(){
         $users = json_decode(file_get_contents('../data/usersInfo.json'),true);
@@ -37,6 +37,7 @@ function saveJSON() : void
         if (pathinfo($_FILES['new-image']['name']) == 'png' || pathinfo($_FILES['new-image']['name']) == 'jpg'){
             $name = rand(100,999).$_FILES['new-image']['name'];
             move_uploaded_file($_FILES['new-image']['tmp_name'],"../data/users/$online_user/$name");
+
         }
     }
     else{
@@ -70,10 +71,8 @@ function saveJSON() : void
             echo '<meta http-equiv="refresh" content="0">';
         }
     }
+
     unset($_FILES);
 }
-if (SHOW_MESSAGE === "JSON"){
-    saveJSON();
 
-}
 
