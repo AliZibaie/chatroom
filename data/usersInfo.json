@@ -25,5 +25,32 @@
         "email": "alizibaie13803@gmail.com",
         "is_admin": false,
         "is_block": false
+    },
+    {
+        "id": 4,
+        "name": "bolbol",
+        "username": "bolboli",
+        "password": "bolbol",
+        "email": "bolbol@gmail.com",
+        "is_admin": false,
+        "is_block": false
+    },
+    {
+        "id": 5,
+        "name": "bolbol2",
+        "username": "bolboli2",
+        "password": "Ali",
+        "email": "bolbol2@gmail.com",
+        "is_admin": false,
+        "is_block": false
+    },
+    {
+        "id": 6,
+        "name": "bolbol3",
+        "username": "bolboli3",
+        "password": "Ali",
+        "email": "bolbol3@gmail.com",
+        "is_admin": false,
+        "is_block": false
     }
 ]

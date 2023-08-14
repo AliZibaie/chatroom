@@ -1,4 +1,5 @@
-<?php 
+<?php
+ob_start();
 session_start();
 if (isset($_GET["username2"]) && isset($_GET["password2"]) && isset($_GET["email"]) && isset($_GET["name2"])) {
     $name = $_GET["name2"];
@@ -74,7 +75,8 @@ if (isset($_GET["username2"]) && isset($_GET["password2"]) && isset($_GET["email
     }
     else {
         $decoded = json_decode(file_get_contents("../../data/usersInfo.json"),true) ;
-        $newUser = ["id"=>count($decoded) + 1,"name"=>$name,"username"=> $userName,"password"=> $password,"email"=> $email];
+        $newUser = ["id"=>count($decoded) + 1,"name"=>$name,"username"=> $userName,"password"=> $password,"email"=> $email,"is_admin"=> false,
+        "is_block"=> false];
         if (!empty($decoded) && in_array($newUser, $decoded)) {
             echo "you have already signed up!";
             header('Refresh:3,url=../../index.php');
@@ -82,8 +84,8 @@ if (isset($_GET["username2"]) && isset($_GET["password2"]) && isset($_GET["email
         }
             $decoded [] = $newUser;
         
-        file_put_contents("../data/usersInfo.json", json_encode($decoded, JSON_PRETTY_PRINT));
-        $_SESSION["userName"] = "$userName";
+        file_put_contents("../../data/usersInfo.json", json_encode($decoded, JSON_PRETTY_PRINT));
+        $_SESSION["username"] = $userName;
         echo "welcome!";
         header('Refresh:3,url=../../pages/home.php');;
         exit;
