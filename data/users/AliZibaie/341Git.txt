@@ -1,0 +1,6 @@
+git branch -f <hash commit>
+git checkout HEAD~1
+git reset HEAD~1
+git revert
+git cherry-pick <hashes> ...
+git fetch ;git merge === git pull
