@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 $online_user = $_SESSION['username'];
-
+require_once "../config.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
