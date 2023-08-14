@@ -1,0 +1,57 @@
+version: '3'
+services:
+
+  php:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: world2
+    ports:
+      - 8000:80
+    volumes:
+      - ./main:/var/www/html/
+    networks:
+      - ali
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:latest
+    container_name: mysqlDB
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: world
+      MYSQL_USER: AliZibaie
+      MYSQL_PASSWORD: 123456
+    ports:
+      - "3307:3306"
+    networks:
+      - ali
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    links:
+    - mysql
+    restart: always
+    ports:
+      - 8080:80
+    networks:
+      - ali
+  navicat:
+    image: navicat/navicatmonitor:3.0.1
+    container_name: navicat
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    links:
+      - mysql
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - ali
+networks:
+  ali:
