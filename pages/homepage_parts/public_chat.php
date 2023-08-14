@@ -79,5 +79,7 @@ function showMessageJSON() : void
         }
     }
 }
-
+if (SHOW_MESSAGE === 'JSON'){
+    showMessageJSON();
+}
 
