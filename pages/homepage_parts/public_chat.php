@@ -5,6 +5,7 @@ global $online_user;
 function showMessageJSON() : void
 {
     global $online_user;
+    global $admin;
     $messagesInPublic = json_decode(file_get_contents('../data/public_chat.json'),true);
     $usersInfo = json_decode(file_get_contents('../data/usersInfo.json'),true);
 
