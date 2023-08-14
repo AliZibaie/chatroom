@@ -4,6 +4,7 @@ require_once '../app/helper.php';
 global $online_user;
 function showMessageJSON() : void
 {
+    global $online_user;
     $messagesInPublic = json_decode(file_get_contents('../data/public_chat.json'),true);
     $usersInfo = json_decode(file_get_contents('../data/usersInfo.json'),true);
 
