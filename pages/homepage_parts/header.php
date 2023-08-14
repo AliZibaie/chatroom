@@ -1,4 +1,5 @@
-<header class="px-3 py-3" style="background-color: #292F33;">
+
+    <header class="px-3 py-3" style="background-color: #292F33;">
         <div class="containerborder-gray-500 flex justify-between items-center py-2">
             <h1 class="w-64 text-3xl text-red-600 font-semibold">Bolbol Chat</h1>
             <form action="" method='post'>
