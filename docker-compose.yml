@@ -9,7 +9,7 @@ services:
     ports:
       - 8000:80
     volumes:
-      - ./main:/var/www/html/
+      - ./:/var/www/html/
     networks:
       - ali
     depends_on:
