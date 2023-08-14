@@ -1,4 +1,5 @@
-<?php 
+<?php
+ob_start();
 session_start();
 if (isset($_POST["username"]) && isset($_POST["password"])) {
 $username = $_POST["username"];
@@ -16,8 +17,8 @@ function login_check($username, $password){
                 <h1 style='color:green;margin:auto;margin-top:300px;width:500px;text-align:center'>Welcome $username</h1>
             </body>
             </html>";
-            header('Refresh:3,url=../../pages/home.php');
-            exit;
+            header('Refresh:3;url=../../pages/home.php');
+            exit();
         }
     }
     echo "<html>
@@ -25,8 +26,8 @@ function login_check($username, $password){
         <h1 style='color:red;margin:auto;margin-top:300px;width:500px;text-align:center'>invalid username or password!</h1>
     </body>
     </html>";
-    header('Refresh:3,url=../../index.php');
-    exit; 
+    header('Refresh:3;url=../../index.php');
+    exit();
 }
 
 
