@@ -5,7 +5,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    container_name: world2
+    container_name: chatroom
     ports:
       - 8000:80
     volumes:
