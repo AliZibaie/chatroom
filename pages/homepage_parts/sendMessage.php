@@ -87,10 +87,10 @@
                 'includes_image'=>$includesImage,
                 'image_name'=>$name
             ];
-            if (AUTHENTICATION === "JSON"){
+            if (SHOW_MESSAGE === "JSON"){
                 file_put_contents('../data/public_chat.json',json_encode($users,JSON_PRETTY_PRINT));
             }
-            if (AUTHENTICATION === "MYSQL"){
+            if (SHOW_MESSAGE === "MYSQL"){
                 $pdo = new PDO('mysql:host=mysql;dbname=chatroom','AliZibaie',123456);
                 $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
                 $query = "SELECT * FROM users ";

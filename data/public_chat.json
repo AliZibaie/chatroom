@@ -1,252 +1,39 @@
-{
-    "3": {
-        "username": "Ali Zibaie",
-        "message": "hi2",
-        "date": "2023-07-06",
-        "id": 2,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": "hiAli Zibaie2"
-    },
-    "4": {
+[
+    {
+        "name": "Ali",
         "username": "AliZibaie",
-        "message": "ad",
-        "date": "2023-07-09",
-        "id": 2,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": true,
-        "image_name": "315132Interpretation-of-nightingale-sleep.jpeg"
+        "password": "123456",
+        "id": 1,
+        "email": "alizibaie1380@gmail.com",
+        "is_admin": 1,
+        "is_block": null
     },
-    "5": {
-        "username": "AliZibaie",
-        "message": "",
-        "date": "2023-07-09",
+    {
+        "name": "bolbol",
+        "username": "aliZibaie12",
+        "password": "123",
+        "id": 2,
+        "email": "alizibaie1380@gmail.com",
+        "is_admin": 0,
+        "is_block": 0
+    },
+    {
+        "name": "bolbol3",
+        "username": "aliZibaie123",
+        "password": "123",
         "id": 3,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": true,
-        "image_name": "584132Interpretation-of-nightingale-sleep.jpeg"
+        "email": "liasnlasd@sdjfb.sdfsd",
+        "is_admin": 0,
+        "is_block": 0
     },
-    "6": {
-        "username": "AliZibaie",
-        "message": "hi",
-        "date": "2023-07-09",
-        "id": 4,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": ""
-    },
-    "7": {
-        "username": "AliZibaie",
-        "message": "hello",
-        "date": "2023-07-09",
-        "id": 5,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": "hi"
-    },
-    "8": {
-        "username": "AliZibaie",
-        "message": "",
-        "date": "2023-07-09",
-        "id": 6,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": true,
-        "image_name": "671132Interpretation-of-nightingale-sleep.jpeg"
-    },
-    "9": {
-        "username": "AliZibaieB",
-        "message": "hi",
-        "date": "2023-07-09",
-        "id": 7,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": ""
-    },
-    "10": {
-        "username": "AliZibaie",
-        "message": "asdasdsadasd",
-        "date": "2023-07-09",
-        "id": 8,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": "hi"
-    },
-    "11": {
-        "username": "AliZibaie",
-        "message": "hi",
-        "date": "2023-07-09",
-        "id": 9,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": "asdasdsadasd"
-    },
-    "12": {
-        "username": "AliZibaie",
-        "message": "asdsa",
-        "date": "2023-07-09",
-        "id": 10,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": "hi"
-    },
-    "13": {
-        "username": "AliZibaie",
-        "message": "\u0628\u0644\u0628\u0644",
-        "date": "2023-07-09",
-        "id": 11,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": "asdsa"
-    },
-    "14": {
-        "username": "AliZibaie",
-        "message": "",
-        "date": "2023-07-09",
-        "id": 12,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": true,
-        "image_name": "490132Interpretation-of-nightingale-sleep.jpeg"
-    },
-    "15": {
-        "username": "AliZibaie",
-        "message": "hi",
-        "date": "2023-08-14",
-        "id": 13,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": ""
-    },
-    "16": {
-        "username": "AliZibaie",
-        "message": "hello",
-        "date": "2023-08-14",
-        "id": 13,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": ""
-    },
-    "17": {
-        "username": "AliZibaie",
-        "message": "ascacasc",
-        "date": "2023-08-14",
-        "id": 15,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": null
-    },
-    "18": {
-        "username": "AliZibaie",
-        "message": "ascacasc\u0633\u0634\u0632",
-        "date": "2023-08-14",
-        "id": 16,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": null
-    },
-    "19": {
-        "username": "AliZibaie",
-        "message": "hi",
-        "date": "2023-08-14",
-        "id": 17,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": null
-    },
-    "20": {
-        "username": "AliZibaie",
-        "message": "\u0633\u0634\u0632\u0633\u0634\u0633\u0634\u0632",
-        "date": "2023-08-14",
-        "id": 18,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": "hi"
-    },
-    "21": {
-        "username": "AliZibaie",
-        "message": "luck",
-        "date": "2023-08-14",
-        "id": 19,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": "\u0633\u0634\u0632\u0633\u0634\u0633\u0634\u0632"
-    },
-    "22": {
-        "username": "AliZibaie",
-        "message": "ascacasc",
-        "date": "2023-08-14",
-        "id": 20,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": "luck"
-    },
-    "23": {
-        "username": "AliZibaie",
-        "message": "hi",
-        "date": "2023-08-14",
-        "id": 21,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": "ascacasc"
-    },
-    "24": {
-        "username": "AliZibaie",
-        "message": "luck",
-        "date": "2023-08-14",
-        "id": 22,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": "hi"
-    },
-    "25": {
-        "username": "AliZibaieB",
-        "message": "hi",
-        "date": "2023-08-14",
-        "id": 23,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": "luck"
-    },
-    "26": {
-        "username": "AliZibaieA",
-        "message": "\u0633\u0634\u0632\u0633\u0634\u0633\u0634\u0632",
-        "date": "2023-08-14",
-        "id": 24,
-        "is_removed_by_user": false,
-        "is_removed_by_admin": false,
-        "includes_image": false,
-        "image_name": "hi"
-    },
-    "27": {
+    {
         "username": "AliZibaie",
         "message": "hi",
         "date": "2023-08-15",
-        "id": 25,
+        "id": 4,
         "is_removed_by_user": false,
         "is_removed_by_admin": false,
         "includes_image": false,
         "image_name": "\u0633\u0634\u0632\u0633\u0634\u0633\u0634\u0632"
     }
-}
+]

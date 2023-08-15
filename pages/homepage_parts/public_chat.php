@@ -13,7 +13,7 @@
     if (SHOW_MESSAGE === "MYSQL"){
         $pdo = new PDO("mysql:host=mysql;dbname=chatroom","AliZibaie",123456);
         $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
-        $query = "SELECT u.username,c.message,c.includes_image,c.image_name FROM chats c inner join users u ON u.id=c.user_id";
+        $query = "SELECT u.username,c.message,c.includes_image,c.image_name FROM chats c inner join users u ON u.id=c.user_id ORDER BY date";
         $statement = $pdo->prepare($query);
         $statement->execute();
         $messagesInPublic = $statement->fetchAll();
