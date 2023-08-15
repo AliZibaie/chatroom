@@ -1,10 +1,20 @@
 <?php
-if (SHOW_MESSAGE === "JSON"){
+
     global $online_user;
 
     global $online_user;
     function is_block(){
-        $users = json_decode(file_get_contents('../data/usersInfo.json'),true);
+        if (AUTHENTICATION === "JSON"){
+            $users = json_decode(file_get_contents('../data/usersInfo.json'),true);
+        }
+        if (AUTHENTICATION === "MYSQL"){
+            $pdo = new PDO('mysql:host=mysql;dbname=chatroom','AliZibaie',123456);
+            $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
+            $query = "SELECT  * FROM users";
+            $statement = $pdo->prepare($query);
+            $statement->execute();
+            $users = $statement->fetchAll();
+        }
         global  $online_user;
         foreach ($users as $user){
             if (($online_user == $user['username']) && !$user['is_block']){
@@ -45,7 +55,18 @@ if (SHOW_MESSAGE === "JSON"){
     }
     if (!is_block() && isset($_POST['new-message'])){
         $message  = $_POST['new-message'];
-        $users = json_decode(file_get_contents('../data/public_chat.json'),true);
+        if (AUTHENTICATION === "JSON"){
+            $users = json_decode(file_get_contents('../data/usersInfo.json'),true);
+        }
+        if (AUTHENTICATION === "MYSQL"){
+            $pdo = new PDO('mysql:host=mysql;dbname=chatroom','AliZibaie',123456);
+            $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
+            $query = "SELECT  * FROM users";
+            $statement = $pdo->prepare($query);
+            $statement->execute();
+            $users = $statement->fetchAll();
+        }
+
         if (!isset($name)) {
             $name  = null;
         }
@@ -66,13 +87,34 @@ if (SHOW_MESSAGE === "JSON"){
                 'includes_image'=>$includesImage,
                 'image_name'=>$name
             ];
-
-            file_put_contents('../data/public_chat.json',json_encode($users,JSON_PRETTY_PRINT));
+            if (AUTHENTICATION === "JSON"){
+                file_put_contents('../data/public_chat.json',json_encode($users,JSON_PRETTY_PRINT));
+            }
+            if (AUTHENTICATION === "MYSQL"){
+                $pdo = new PDO('mysql:host=mysql;dbname=chatroom','AliZibaie',123456);
+                $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
+                $query = "SELECT * FROM users ";
+                $statement = $pdo->prepare($query);
+                $statement->execute();
+                $users = $statement->fetchAll();
+                foreach ($users as $user){
+                    if ($user['username'] == $online_user){
+                        $userId = $user['id'];
+                    }
+                }
+                $query = "INSERT INTO chats(user_id,message,includes_image,image_name) VALUES (:user_id, :message, :includes_image, :image_name)";
+                $statement = $pdo->prepare($query);
+                $statement->bindParam(':user_id', $userId);
+                $statement->bindParam(':message', $message);
+                $statement->bindParam(':includes_image', $includesImage);
+                $statement->bindParam(':image_name', $name);
+                $statement->execute();
+            }
             echo '<meta http-equiv="refresh" content="0">';
         }
     }
 
     unset($_FILES);
-}
+
 
 

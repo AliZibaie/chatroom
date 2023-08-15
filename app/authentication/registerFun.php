@@ -107,8 +107,6 @@ if (isset($_GET["username2"]) && isset($_GET["password2"]) && isset($_GET["email
             header('Refresh:3,url=../../pages/home.php');
             exit;
         }
-
-
     }
 }
 

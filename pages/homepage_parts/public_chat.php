@@ -1,13 +1,24 @@
 <?php
-if (SHOW_MESSAGE ==='JSON'){
+
     require_once '../app/function.php';
     require_once '../app/helper.php';
     global $online_user;
 
     global $online_user;
     global $admin;
-    $messagesInPublic = json_decode(file_get_contents('../data/public_chat.json'),true);
-    $usersInfo = json_decode(file_get_contents('../data/usersInfo.json'),true);
+    if(SHOW_MESSAGE === "JSON"){
+        $messagesInPublic = json_decode(file_get_contents('../data/public_chat.json'),true);
+        $usersInfo = json_decode(file_get_contents('../data/usersInfo.json'),true);
+    }
+    if (SHOW_MESSAGE === "MYSQL"){
+        $pdo = new PDO("mysql:host=mysql;dbname=chatroom","AliZibaie",123456);
+        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
+        $query = "SELECT u.username,c.message,c.includes_image,c.image_name FROM chats c inner join users u ON u.id=c.user_id";
+        $statement = $pdo->prepare($query);
+        $statement->execute();
+        $messagesInPublic = $statement->fetchAll();
+    }
+
 
     $names = [];
     foreach ($messagesInPublic as $key => $messages){
@@ -80,6 +91,6 @@ if (SHOW_MESSAGE ==='JSON'){
             }
         }
     }
-}
+
 
 
