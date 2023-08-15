@@ -1,39 +1,42 @@
 [
     {
-        "name": "Ali",
+        "username": "bolboli",
+        "message": "hi",
+        "date": "2023-08-15",
+        "message_id": 5,
+        "is_removed_by_user": false,
+        "is_removed_by_admin": false,
+        "includes_image": false,
+        "image_name": "hsfwd"
+    },
+    {
+        "username": "bolboli",
+        "message": "hsfwd",
+        "date": "2023-08-15",
+        "message_id": 2,
+        "is_removed_by_user": false,
+        "is_removed_by_admin": false,
+        "includes_image": false,
+        "image_name": "hi"
+    },
+    {
         "username": "AliZibaie",
-        "password": "123456",
-        "id": 1,
-        "email": "alizibaie1380@gmail.com",
-        "is_admin": 1,
-        "is_block": null
-    },
-    {
-        "name": "bolbol",
-        "username": "aliZibaie12",
-        "password": "123",
-        "id": 2,
-        "email": "alizibaie1380@gmail.com",
-        "is_admin": 0,
-        "is_block": 0
-    },
-    {
-        "name": "bolbol3",
-        "username": "aliZibaie123",
-        "password": "123",
-        "id": 3,
-        "email": "liasnlasd@sdjfb.sdfsd",
-        "is_admin": 0,
-        "is_block": 0
+        "message": "luck",
+        "date": "2023-08-15",
+        "message_id": 3,
+        "is_removed_by_user": false,
+        "is_removed_by_admin": false,
+        "includes_image": false,
+        "image_name": "hsfwd"
     },
     {
         "username": "AliZibaie",
         "message": "hi",
         "date": "2023-08-15",
-        "id": 4,
+        "message_id": 4,
         "is_removed_by_user": false,
         "is_removed_by_admin": false,
         "includes_image": false,
-        "image_name": "\u0633\u0634\u0632\u0633\u0634\u0633\u0634\u0632"
+        "image_name": "luck"
     }
 ]

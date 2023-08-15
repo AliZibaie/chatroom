@@ -4,10 +4,10 @@
 
     global $online_user;
     function is_block(){
-        if (AUTHENTICATION === "JSON"){
+        if (SHOW_MESSAGE === "JSON"){
             $users = json_decode(file_get_contents('../data/usersInfo.json'),true);
         }
-        if (AUTHENTICATION === "MYSQL"){
+        if (SHOW_MESSAGE === "MYSQL"){
             $pdo = new PDO('mysql:host=mysql;dbname=chatroom','AliZibaie',123456);
             $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
             $query = "SELECT  * FROM users";
@@ -55,10 +55,10 @@
     }
     if (!is_block() && isset($_POST['new-message'])){
         $message  = $_POST['new-message'];
-        if (AUTHENTICATION === "JSON"){
-            $users = json_decode(file_get_contents('../data/usersInfo.json'),true);
+        if (SHOW_MESSAGE === "JSON"){
+            $usersJSON= json_decode(file_get_contents('../data/public_chat.json'),true);
         }
-        if (AUTHENTICATION === "MYSQL"){
+        if (SHOW_MESSAGE === "MYSQL"){
             $pdo = new PDO('mysql:host=mysql;dbname=chatroom','AliZibaie',123456);
             $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
             $query = "SELECT  * FROM users";
@@ -77,18 +77,21 @@
             echo '<meta http-equiv="refresh" content="3">';
             exit;
         }else{
-            $users[] = [
-                'username'=>$online_user,
-                'message'=> $message,
-                'date'=>date('Y-m-d'),
-                'id'=>count($users) + 1,
-                "is_removed_by_user"=>false,
-                "is_removed_by_admin"=>false,
-                'includes_image'=>$includesImage,
-                'image_name'=>$name
-            ];
+            if (isset($usersJSON)){
+                $usersJSON[] = [
+                    'username'=>$online_user,
+                    'message'=> $message,
+                    'date'=>date('Y-m-d'),
+                    'message_id'=>count($usersJSON) + 1,
+                    "is_removed_by_user"=>false,
+                    "is_removed_by_admin"=>false,
+                    'includes_image'=>$includesImage,
+                    'image_name'=>$name
+                ];
+            }
+
             if (SHOW_MESSAGE === "JSON"){
-                file_put_contents('../data/public_chat.json',json_encode($users,JSON_PRETTY_PRINT));
+                file_put_contents('../data/public_chat.json',json_encode($usersJSON,JSON_PRETTY_PRINT));
             }
             if (SHOW_MESSAGE === "MYSQL"){
                 $pdo = new PDO('mysql:host=mysql;dbname=chatroom','AliZibaie',123456);
