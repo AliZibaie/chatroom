@@ -1,7 +1,6 @@
 <?php
 
     require_once '../app/function.php';
-    require_once '../app/helper.php';
     global $online_user;
 
     global $online_user;
@@ -13,7 +12,7 @@
     if (SHOW_MESSAGE === "MYSQL"){
         $pdo = new PDO("mysql:host=mysql;dbname=chatroom","AliZibaie",123456);
         $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
-        $query = "SELECT u.username,c.message,c.includes_image,c.image_name FROM chats c inner join users u ON u.id=c.user_id ORDER BY date";
+        $query = "SELECT u.username,c.message,c.includes_image,c.image_name, c.id FROM chats c inner join users u ON u.id=c.user_id ORDER BY date";
         $statement = $pdo->prepare($query);
         $statement->execute();
         $messagesInPublic = $statement->fetchAll();
@@ -21,19 +20,46 @@
 
 
     $names = [];
+
+
     foreach ($messagesInPublic as $key => $messages){
         $message = $messages['message'];
         $user = $messages['username'];
         $name = $message;
         $names[] = $name;
+        if (SHOW_MESSAGE === "JSON"){
+            $message_id = $messages["message_id"];
+        }
+        if (SHOW_MESSAGE === "MYSQL"){
+            $message_id = $messages["id"];
+        }
+//        $message_id = $messages["id"];
+
+        $message_id_d = $message_id."d";
+        $message_id_e = $message_id."e";
+        require '../app/helper.php';
+
+        $message_id_ds[] = $message_id_d;
+        $message_id_es[] = $message_id_e;
         $includes_image = $messages['includes_image'];
+        if ($key == 0){
+            echo "            <div class='chat chat-start'>
+            <div class='chat-image avatar text-black text-lg'>
+            bolbol
+            </div>
+         
+            <div class='chat-bubble w-96 h-16 text-white'>hi 
+            <div class='hidden'>$admin</div>
+            </div>
+          </div>";
+        }
         if ($online_user == $user){
             if (!$includes_image) {
                 echo "<div class='chat chat-end '>
             <div class='chat-image avatar  text-green-700 text-lg'>
             $online_user
             </div>
-            <div class='chat-bubble w-96 text-white text-lg relative h-16' name= '$message'>$message
+            <div class='chat-bubble w-96 text-white text-lg relative h-16' name= ''>$message
             $admin
             </div>
           </div>";
@@ -46,10 +72,10 @@
             </div>
             <div class='chat-image avatar h-24'>
             <div class='w-24 rounded-xl absolute' style='top:0px;left:-600px;'>
-              <img src='../data/users/$user/$image_name'  name= '$image_name'>
+              <img src='../data/users/$user/$image_name'  name= ''>
             </div>
           </div>
-            <div class='chat-bubble w-96 relative h-24 text-white text-lg'  name= '$message'>$message 
+            <div class='chat-bubble w-96 relative h-24 text-white text-lg'  name= ''>$message 
             $admin
             </div>
             
@@ -91,6 +117,43 @@
             }
         }
     }
+function delete() : bool
+{
+        global $message_id_ds;
+    foreach ($message_id_ds as $messages){
+        if (isset($_GET[$messages])){
+            $messages =  (INT) $messages;
+            $pdo = new PDO("mysql:host=mysql;dbname=chatroom","AliZibaie",123456);
+            $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
+            $query = "DELETE FROM chats WHERE id = :message_id";
+            $statement = $pdo->prepare($query);
+            $statement->bindParam(':message_id', $messages);
+            $statement->execute();
+            header("Refresh:0");
+            return true;
+        }
+    }
+    return false;
+}
+
+function edit() : bool
+{
+     $editContent = $_POST["editTextUser"];
+    global $message_id_es;
+    foreach ($message_id_es as $messages){
+        if (isset($_GET[$messages])){
+            $messages =  (INT) $messages;
+            $pdo = new PDO("mysql:host=mysql;dbname=chatroom","AliZibaie",123456);
+            $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
+            $query = "UPDATE chats SET message = $editContent WHERE id = :message_id";
+            $statement = $pdo->prepare($query);
+            $statement->bindParam(':message_id', $messages);
+            $statement->execute();
+            return true;
+        }
+    }
+    return false;
+}
 
 
 

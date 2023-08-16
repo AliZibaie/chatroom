@@ -10,7 +10,7 @@ require_once "../config.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>chatroom</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
 
@@ -42,7 +42,7 @@ require_once "../config.php";
         <div class='  flex my-10 mx-auto w-full relative flex justify-center h-full'>
             <?php require_once 'homepage_parts/leftside.php'; ?>
             <div class='w-2/4 '>
-                <diV class='w-100 bg-wood border-2 border-black p-5 flex flex-col overflow-y-auto relative' style='height:500px;'>
+                <diV class='w-100 bg-wood border-2 border-black px-5 pt-8 flex flex-col overflow-y-auto relative' style='height:500px;'>
                 <form action="" method="post">
                     <?php require_once 'homepage_parts/public_chat.php'; ?>
                     </form>
@@ -64,8 +64,23 @@ require_once "../config.php";
         </div>
     </form> -->
 
-
-
+    <!-- Open the modal using ID.showModal() method -->
+<!--    <button class="btn" onclick="my_modal_1.showModal()">open modal</button>-->
+    <dialog id='my_modal_1' class='modal'>
+        <form method='post' class='modal-box'>
+            <h3 class='font-bold text-lg'>Hello!</h3>
+            <form action='' method='post'>
+                <input type='text' name='editTextUser'></input>
+                <p class='py-4'>change your message</p>
+                <div class='modal-action'>
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class='btn'>forget it</button>
+                </div>
+            </form>
+        </form>
+    </dialog>
+    delete() ;
+    edit() ;
 
 
 

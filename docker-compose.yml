@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: chatroom
     ports:
-      - 8000:80
+      - 2:80
     volumes:
       - ./:/var/www/html/
     networks:
@@ -37,7 +37,7 @@ services:
     - mysql
     restart: always
     ports:
-      - 8080:80
+      - 8088:80
     networks:
       - ali
   navicat:
