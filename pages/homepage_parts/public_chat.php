@@ -138,22 +138,39 @@ function delete() : bool
 
 function edit() : bool
 {
-     $editContent = $_POST["editTextUser"];
     global $message_id_es;
     foreach ($message_id_es as $messages){
         if (isset($_GET[$messages])){
             $messages =  (INT) $messages;
-            $pdo = new PDO("mysql:host=mysql;dbname=chatroom","AliZibaie",123456);
-            $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
-            $query = "UPDATE chats SET message = $editContent WHERE id = :message_id";
-            $statement = $pdo->prepare($query);
-            $statement->bindParam(':message_id', $messages);
-            $statement->execute();
+            ?>
+
+
+            <?php
+            echo "<script>
+                let newText = prompt('enter your new text please');
+             </script>
+             ";
+            $editContent = "<script>document.writeln(newText);</script>";
+            ?>
+            <?php
+            update($editContent, $messages);
+
             return true;
         }
     }
     return false;
 }
 
+function update($editContent,$messages) : void
+{
+    $pdo = new PDO("mysql:host=mysql;dbname=chatroom","AliZibaie",123456);
+    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
 
+    $query = "UPDATE chats SET message = :editContent WHERE id = :message_id";
+    $statement = $pdo->prepare($query);
+    $statement->bindParam(':message_id', $messages);
+    $statement->bindParam(':editContent', $editContent);
+    $statement->execute();
+    header("Refresh:0");
+}
 

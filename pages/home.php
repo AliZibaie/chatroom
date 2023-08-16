@@ -66,21 +66,22 @@ require_once "../config.php";
 
     <!-- Open the modal using ID.showModal() method -->
 <!--    <button class="btn" onclick="my_modal_1.showModal()">open modal</button>-->
-    <dialog id='my_modal_1' class='modal'>
-        <form method='post' class='modal-box'>
-            <h3 class='font-bold text-lg'>Hello!</h3>
-            <form action='' method='post'>
-                <input type='text' name='editTextUser'></input>
-                <p class='py-4'>change your message</p>
-                <div class='modal-action'>
-                    <!-- if there is a button in form, it will close the modal -->
-                    <button class='btn'>forget it</button>
-                </div>
-            </form>
-        </form>
-    </dialog>
-    delete() ;
-    edit() ;
+<!--    <dialog id='my_modal_1' class='modal'>-->
+<!--        <form method='post' class='modal-box'>-->
+<!--            <h3 class='font-bold text-lg'>Hello!</h3>-->
+<!--            <form action='' method='post'>-->
+<!--                <input type='text' name='editTextUser'></input>-->
+<!--                <p class='py-4'>change your message</p>-->
+<!--                <div class='modal-action'>-->
+<!--                    if there is a button in form, it will close the modal -->
+<!--                    <button class='btn'>forget it</button>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </form>-->
+<!--    </dialog>-->
+<?php
+delete() ;
+edit() ;?>
 
 
 
