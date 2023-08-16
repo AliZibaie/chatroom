@@ -123,12 +123,24 @@ function delete() : bool
     foreach ($message_id_ds as $messages){
         if (isset($_GET[$messages])){
             $messages =  (INT) $messages;
-            $pdo = new PDO("mysql:host=mysql;dbname=chatroom","AliZibaie",123456);
-            $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
-            $query = "DELETE FROM chats WHERE id = :message_id";
-            $statement = $pdo->prepare($query);
-            $statement->bindParam(':message_id', $messages);
-            $statement->execute();
+            if (SHOW_MESSAGE == "MYSQL"){
+                $pdo = new PDO("mysql:host=mysql;dbname=chatroom","AliZibaie",123456);
+                $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
+                $query = "DELETE FROM chats WHERE id = :message_id";
+                $statement = $pdo->prepare($query);
+                $statement->bindParam(':message_id', $messages);
+                $statement->execute();
+            }
+            if (SHOW_MESSAGE == "JSON"){
+                $messagesJSON =  json_decode(file_get_contents("../data/public_chat.json"),true);
+                foreach ($messagesJSON as $key => $message){
+                    if ($message["message_id"] == $messages){
+                        unset($messagesJSON[$key]);
+                        file_put_contents(json_encode($messagesJSON),JSON_PRETTY_PRINT);
+                        return  true;
+                    }
+                }
+            }
             header("Refresh:0");
             return true;
         }
